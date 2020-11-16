@@ -1,6 +1,6 @@
+import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
-import static io.restassured.RestAssured.get;
 
 
 public class RoutingServiceClient {
@@ -12,7 +12,7 @@ public class RoutingServiceClient {
     }
 
     public String getRoute(String seed){
-        Response response = get(localhostRoutingService + seed);
+        Response response = RestAssured.get(localhostRoutingService + seed);
         return response.getHeader("X-Transaction-Id");
     }
 }
